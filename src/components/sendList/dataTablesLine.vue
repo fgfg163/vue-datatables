@@ -1,9 +1,9 @@
 <template>
   <tr>
     <td>
+      <v-cell></v-cell>
     </td>
     <td>
-      没有数据！
     </td>
     <td>
       没有数据！
@@ -31,6 +31,9 @@
   }
 </style>
 <script>
+  import vCell from './cell.vue';
+  import Vue from 'vue';
+
   export default{
     data(){
       return {
@@ -54,6 +57,11 @@
         },
       }
     },
-    components: {}
+    components: {
+      sss: Vue.component('v-cell', vCell),
+    },
+    ready(){
+
+    }
   }
 </script>

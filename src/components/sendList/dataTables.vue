@@ -21,51 +21,50 @@
     </div>
     <table class="table table-striped table-condensed table-hover">
       <thead class="thead">
-        <th>
-          1
-        </th>
-        <th>报表名称</th>
-        <th>
-          2
-        </th>
-        <th>查询状态</th>
-        <th>
-          3
-        </th>
-        <th>可执行操作</th>
-        <th>失败原因</th>
-        <th>查询人</th>
+      <th>
+        1
+      </th>
+      <th>报表名称</th>
+      <th>
+        2
+      </th>
+      <th>查询状态</th>
+      <th>
+        3
+      </th>
+      <th>可执行操作</th>
+      <th>失败原因</th>
+      <th>查询人</th>
       </thead>
       <tfoot></tfoot>
       <tbody>
-        <template v-if="(!c_data || c_data.length==0)">
-          <tr>
-            <td colspan="9">
-              没有数据！
-            </td>
-          </tr>
-          <tr>
-            <td colspan="9">
-              没有数据！
-            </td>
-          </tr>
-          <tr>
-            <td colspan="9">
-              没有数据！
-            </td>
-          </tr>
-          <tr>
-            <td colspan="9">
-              没有数据！
-            </td>
-          </tr>
-        </template>
-        <template v-for="(dataIndex, lineData) in c_data">
-          <v-datatables-line
-            v-bind:data="lineData"
-            v-bind:v-cell="vCell">
-          </v-datatables-line>
-        </template>
+      <template v-if="(!c_data || c_data.length==0)">
+        <tr>
+          <td colspan="9">
+            没有数据！
+          </td>
+        </tr>
+        <tr>
+          <td colspan="9">
+            没有数据！
+          </td>
+        </tr>
+        <tr>
+          <td colspan="9">
+            没有数据！
+          </td>
+        </tr>
+        <tr>
+          <td colspan="9">
+            没有数据！
+          </td>
+        </tr>
+      </template>
+      <template v-for="(dataIndex, lineData) in c_data">
+        <v-datatables-line
+          v-bind:data="lineData">
+        </v-datatables-line>
+      </template>
       </tbody>
     </table>
     <v-pagination
@@ -87,15 +86,19 @@
 
 </style>
 
-<script>
+<script type="text/ecmascript-6">
   import vPagination from './pagination.vue';
-  import vDatatablesLine from './dataTablesLine.vue';
   import vMessageModel from '../messageModel/messageModel.vue'
   import vSortIcon from '../sortIcon/sortIcon.vue'
-  import vCell from './cell.vue';
+  import vCell from './cellss.vue';
+  import Vue from 'vue';
+
+
+  import vDatatablesLine from './dataTablesLine.vue';
 
 
   import URI from 'urijs';
+
 
   export default{
     data(){
@@ -106,7 +109,6 @@
         sortName: "",
         sortState: "",
 
-        vCell: vCell,
       };
     },
     props: {
@@ -211,6 +213,7 @@
     },
     ready(){
       console.log(this);
+      Vue.component('v-cell', vCell);
     },
   }
 </script>

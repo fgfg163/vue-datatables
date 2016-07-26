@@ -36,7 +36,7 @@ module.exports = {
   // .vue的配置。需要单独出来配置
   vue: {
     loaders: {
-      css: 'css!sass',
+      css: 'css',
       js: 'babel'
     }
   },
@@ -53,6 +53,10 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new CopyWebpackPlugin([
       {from: './src/index.html'},
+      {
+        from: 'src/static/',
+        to: 'static',
+      },
     ], {
       copyUnmodified: false
     })
