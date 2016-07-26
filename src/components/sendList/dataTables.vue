@@ -91,11 +91,10 @@
   import vMessageModel from '../messageModel/messageModel.vue'
   import vSortIcon from '../sortIcon/sortIcon.vue'
   import vCell from './cellss.vue';
-  import Vue from 'vue';
 
 
-  import vDatatablesLine from './dataTablesLine.vue';
-
+  const vDatatablesLine = require('./dataTablesLine.vue')(vCell);
+  console.log(vDatatablesLine);
 
   import URI from 'urijs';
 
@@ -213,7 +212,6 @@
     },
     ready(){
       console.log(this);
-      Vue.component('v-cell', vCell);
     },
   }
 </script>
