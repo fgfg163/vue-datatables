@@ -50,4 +50,16 @@ module.exports = {
   ],
   externals: {},
   devtool: 'source-map',
+  devServer: {
+    proxy: {
+      '/some/path*': {
+        target: 'https://localhost:9999',
+        secure: false,
+        bypass: function (req, res, proxyOptions) {
+          console.log(req.url);
+          return "/test/test.json";
+        }
+      }
+    }
+  }
 };
