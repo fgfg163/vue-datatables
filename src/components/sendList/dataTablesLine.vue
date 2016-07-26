@@ -1,27 +1,59 @@
 <template>
-    <div>
-        <header-component/>
-        <div>this is template body</div>
-        <other-component/>
-    </div>
+  <tr>
+    <td>
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+    <td>
+      没有数据！
+    </td>
+  </tr>
 </template>
 <style>
-    body{
-        background-color:#ff0000;
-    }
+  body {
+    background-color: #ff0000;
+  }
 </style>
 <script>
-    import HeaderComponent from './components/header.vue'
-    import OtherComponent from './components/other.vue'
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
+  export default{
+    data(){
+      return {
+        msg: 'hello vue'
+      }
+    },
+    props: {
+      vCell: {
+        default: Object,
+        coerce: val => {
+          console.log(val);
+          return val;
         },
-        components:{
-            'other-component':OtherComponent,
-            HeaderComponent,
-        }
-    }
+      },
+
+      data: {
+        default: Object,
+        coerce: val => {
+          console.log(val);
+          return val;
+        },
+      }
+    },
+    components: {}
+  }
 </script>

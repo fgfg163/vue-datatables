@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>2333333
   </div>
 </template>
 <style>
@@ -14,9 +14,6 @@
         msg: 'hello vue'
       }
     },
-    components: {
-      'other-component': OtherComponent,
-      HeaderComponent,
-    }
+    components: {}
   }
 </script>
