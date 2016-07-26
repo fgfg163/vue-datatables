@@ -93,7 +93,9 @@
   import vCell from './cellss.vue';
 
 
-  const vDatatablesLine = require('./dataTablesLine.vue')(vCell);
+  const test = require('./dataTablesLine.vue');
+  console.log(test);
+  const vDatatablesLine = test.getVue(vCell);
   console.log(vDatatablesLine);
 
   import URI from 'urijs';
