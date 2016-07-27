@@ -41,16 +41,12 @@
       }
     },
     props: {
-      vCell: {
-        default: Object,
-      },
-
       data: {
         default: Object,
       }
     },
     components: {
-      vCell: vCell,
+      vCell,
     },
     ready(){
       console.log(this);
