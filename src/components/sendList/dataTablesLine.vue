@@ -35,38 +35,35 @@
   import Vue from 'vue';
 
   export default {
-    getVue(vCell) {
+    data(){
       return {
-        template: this.template,
-        data(){
-          return {
-            msg: 'hello vue'
-          }
-        },
-        props: {
-          vCell: {
-            default: Object,
-            coerce: val => {
-              console.log(val);
-              return val;
-            },
-          },
-
-          data: {
-            default: Object,
-            coerce: val => {
-              console.log(val);
-              return val;
-            },
-          }
-        },
-        components: {
-          sss: Vue.component('v-cell', vCell),
-        },
-        ready(){
-
-        }
+        msg: 'hello vue'
       }
+    },
+    props: {
+      vCell: {
+        default: Object,
+      },
+
+      data: {
+        default: Object,
+      }
+    },
+    components: {
+      vCell: vCell,
+    },
+    ready(){
+      console.log(this);
+    },
+
+    _setComponent(components = {}){
+      let comp = this;
+      comp.components = comp.components || {};
+      comp.components = {
+        ...comp.components,
+        ...components,
+      };
+      return comp;
     }
   }
 </script>
