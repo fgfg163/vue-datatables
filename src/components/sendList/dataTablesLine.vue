@@ -1,27 +1,8 @@
 <template>
   <tr>
-    <td>
-      <v-cell></v-cell>
-    </td>
-    <td>
-    </td>
-    <td>
-      没有数据！
-    </td>
-    <td>
-      没有数据！
-    </td>
-    <td>
-      没有数据！
-    </td>
-    <td>
-      没有数据！
-    </td>
-    <td>
-      没有数据！
-    </td>
-    <td>
-      没有数据！
+    <td v-for="column in columns">
+      <component :is="column.componentName">
+      </component>
     </td>
   </tr>
 </template>
@@ -43,6 +24,10 @@
     props: {
       data: {
         default: Object,
+      },
+      columns: {
+        default: Array,
+        coerce: val => val || [],
       }
     },
     components: {

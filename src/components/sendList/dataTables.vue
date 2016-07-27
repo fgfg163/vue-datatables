@@ -62,6 +62,7 @@
         </template>
         <template v-for="(dataIndex, lineData) in c_data">
           <v-datatables-line
+            v-bind:columns="columns"
             v-bind:data="lineData">
           </v-datatables-line>
         </template>
@@ -91,9 +92,10 @@
   import vMessageModel from '../messageModel/messageModel.vue'
   import vSortIcon from '../sortIcon/sortIcon.vue'
   import vCell from './cellss.vue';
+  import vCell3 from './cellsss.vue';
 
 
-  const vDatatablesLine = require('./dataTablesLine.vue')._setComponent({vCell, vtest: vCell});
+  const vDatatablesLine = require('./dataTablesLine.vue')._setComponent({vCell2: vCell, vCell3: vCell3});
 
   import URI from 'urijs';
 
@@ -130,10 +132,6 @@
       },
       columns: {
         default: Array,
-        coerce: val => {
-          console.log(val);
-          return val;
-        },
       },
       total: {
         default: 0,
